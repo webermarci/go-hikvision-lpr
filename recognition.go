@@ -1,5 +1,7 @@
 package lpr
 
+import "time"
+
 type Direction string
 
 const (
@@ -9,18 +11,11 @@ const (
 )
 
 type Recognition struct {
-	LicencePlate string
-	Confidence   int
-	Nation       string
-	Country      string
-	Direction    Direction
-}
-
-func (recognition *Recognition) IsDirectionViolated() bool {
-	switch recognition.Direction {
-	case Leaving:
-		return true
-	default:
-		return false
-	}
+	UUID         string    `json:"uuid"`
+	Timestamp    time.Time `json:"timestamp"`
+	LicencePlate string    `json:"licence_plate"`
+	Direction    Direction `json:"direction"`
+	Confidence   int       `json:"confidence"`
+	Nation       string    `json:"nation"`
+	Country      string    `json:"country"`
 }

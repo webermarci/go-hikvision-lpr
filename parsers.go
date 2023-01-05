@@ -4,6 +4,7 @@ import (
 	"errors"
 	"strconv"
 	"strings"
+	"time"
 )
 
 func parsePullAddress(body string) (string, error) {
@@ -27,7 +28,12 @@ func parseRecognition(body string) *Recognition {
 	split := strings.SplitAfter(data, ">")
 	split = split[:len(split)-1]
 
-	rec := &Recognition{}
+	now := time.Now()
+
+	rec := &Recognition{
+		UUID:      strconv.FormatInt(now.UnixNano(), 36),
+		Timestamp: now,
+	}
 
 	for _, line := range split {
 		name, value, err := parseItem(line)
@@ -60,6 +66,8 @@ func parseRecognition(body string) *Recognition {
 			default:
 				rec.Direction = Unknown
 			}
+		default:
+			return nil
 		}
 	}
 
