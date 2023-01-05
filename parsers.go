@@ -66,9 +66,11 @@ func parseRecognition(body string) *Recognition {
 			default:
 				rec.Direction = Unknown
 			}
-		default:
-			return nil
 		}
+	}
+
+	if rec.LicencePlate == "" {
+		return nil
 	}
 
 	return rec
