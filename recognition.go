@@ -11,7 +11,6 @@ const (
 )
 
 type Recognition struct {
-	UUID         string    `json:"uuid"`
 	Timestamp    time.Time `json:"timestamp"`
 	LicencePlate string    `json:"licence_plate"`
 	Direction    Direction `json:"direction"`

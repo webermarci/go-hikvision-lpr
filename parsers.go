@@ -31,7 +31,6 @@ func parseRecognition(body string) *Recognition {
 	now := time.Now()
 
 	rec := &Recognition{
-		UUID:      strconv.FormatInt(now.UnixNano(), 36),
 		Timestamp: now,
 	}
 
