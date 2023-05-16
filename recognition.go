@@ -5,9 +5,9 @@ import "time"
 type Direction string
 
 const (
-	Approaching Direction = "Approaching"
-	Leaving     Direction = "Leaving"
-	Unknown     Direction = "Unknown"
+	Approaching Direction = "approaching"
+	Leaving     Direction = "leaving"
+	Unknown     Direction = "unknown"
 )
 
 type Recognition struct {
