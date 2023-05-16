@@ -2,12 +2,12 @@ package lpr
 
 import (
 	"bytes"
+	"crypto/rand"
 	"crypto/sha1"
 	"encoding/base64"
 	"fmt"
 	"hash"
 	"io"
-	"math/rand"
 	"net/http"
 	"time"
 )
@@ -65,7 +65,10 @@ func (device *Device) StartPullingRecognitions(callback func(rec *Recognition, e
 			continue
 		}
 
-		callback(rec, nil)
+		if rec != nil {
+			callback(rec, nil)
+		}
+
 		time.Sleep(100 * time.Millisecond)
 	}
 }

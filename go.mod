@@ -1,3 +1,3 @@
 module github.com/webermarci/go-hikvision-lpr
 
-go 1.19
+go 1.20
