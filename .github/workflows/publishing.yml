@@ -22,7 +22,7 @@ jobs:
         run: go test -v -race
 
       - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@1.65.0
+        uses: anothrNick/github-tag-action@1.66.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
